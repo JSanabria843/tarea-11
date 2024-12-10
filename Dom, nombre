@@ -1,0 +1,46 @@
+Codigo para colocar mi nombre utilizando el DOM y omitir el color rojo, adicional el codigo cada vez que se ejecuta se muestra un color diferente: 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manipulación del DOM</title>
+    <style>
+        .highlight {
+            background-color: yellow; /* Cambia este color si prefieres otro */
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div id="contenedor"></div>
+    <script>
+
+        // Función para generar un color aleatorio excepto el rojo
+function generarColorAleatorio() {
+    let color;
+    do {
+        color = `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)})`;
+    } while (color === "rgb(255, 0, 0)"); // Asegurar que no sea rojo puro
+    return color;
+}
+
+
+const contenedor = document.getElementById("contenedor");
+
+
+const texto = document.createElement("p");
+texto.textContent = "Jorge Sanabria";
+
+
+texto.style.backgroundColor = generarColorAleatorio();
+texto.style.color = "#000"; 
+texto.style.fontWeight = "bold";
+texto.style.padding = "10px"; 
+
+
+contenedor.appendChild(texto);
+    </script>
+</body>
+</html>
